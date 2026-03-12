@@ -48,6 +48,7 @@ jobs:
 
       - name: Generate new html
         run: |
+          mkdir -p /opt/Gmeek/backup  # 关键新增：提前创建backup目录
           cp -r ./* /opt/Gmeek/
           cd /opt/Gmeek/
           python Gmeek.py ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
